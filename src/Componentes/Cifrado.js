@@ -153,7 +153,7 @@ class CifradoForm extends React.Component {
                                     <br></br>
                                     <div className="Formulario-grupo">
                                         <div>
-                                            <label className="Formulario-label Titulocifrado">Texto Desencriptado</label>
+                                            <label className="Formulario-label Titulocifrado">Texto Desencriptado </label>
                                         </div>
                                         <div className="contenedorTexto">
                                             <label className="Formulario-label">{this.state.TextoDesencriptarResultado}</label>
