@@ -44,7 +44,7 @@ class CifradoForm extends React.Component {
         } else {
 
             for (let i = 0; i < texto.length; i++) {
-                if (texto[i] == " ") {
+                if (texto[i] === " ") {
                     textoCifrado += " ";
                 } else {
                     textoCifrado += Abecedario[(Abecedario.indexOf(texto[i].toUpperCase()) + parseInt(desplazamiento)) % 27];
@@ -69,10 +69,14 @@ class CifradoForm extends React.Component {
             alert("El desplazamiento debe estar entre 1 y 27");
         } else {
             for (let i = 0; i < texto.length; i++) {
-                if (texto[i] == " ") {
+                if (texto[i] === " ") {
                     textoDesencriptado += " ";
                 } else {
-                    textoDesencriptado += Abecedario[(Abecedario.indexOf(texto[i].toUpperCase()) - parseInt(desplazamiento)) % 27];
+                    let Resta_negativa = false;
+                    if (Abecedario.indexOf(texto[i].toUpperCase()) - parseInt(desplazamiento) < 0) {
+                        Resta_negativa = true;
+                    }
+                    textoDesencriptado += Abecedario[(Abecedario.indexOf(texto[i].toUpperCase()) - parseInt(desplazamiento) + 27 * Resta_negativa) % 27];
                 }
             }
             this.setState({
